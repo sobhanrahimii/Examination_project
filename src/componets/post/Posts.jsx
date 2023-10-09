@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 
 import Rectangle_1 from "public/assets/blog_image/Rectangle_1_38.png";
 import Rectangle_2 from "public/assets/blog_image/Rectangle_2_38.png";
@@ -22,13 +23,16 @@ import a_author_8 from "public/assets/blog_image/a_author_8.png";
 import a_author_9 from "public/assets/blog_image/a_author_9.png";
 import Link from "next/link";
 
+
 const Posts = () => {
+    const status = "unAuthenticate";
+   const isLogin = "unAuth";
   return (
     <div>
       <div className="mt-[20%] px-2 flex flex-wrap justify-center gap-2">
         <div className="shadow-2xl p-2 rounded-md">
           <div className="flex gap-4 flex-1 flex-wrap">
-            <Link href="/blog">
+            <Link href={'/blog'}>
               <div className="pb-2 hover:scale-95 transition-all duration-300">
                 <Image src={Rectangle_1} alt="" className="pb-2" />
                 <span className="p-1 w-[30%] rounded-md text-[14px] bg-[#e5e5e6] text-[#4B6BFB]">
@@ -216,7 +220,10 @@ const Posts = () => {
         </div>
       </div>
       <div className="flex justify-center text-center items-center p-2 bg-gray-100 mx-auto my-2">
-        <Link href="/blog" className="text-[#181818] font-semibold hover:text-[#4B6BFB]">View All Posts</Link>
+        <div className="flex items-center justify-center gap-5"> 
+        <Link href="/blog" className="btn btn-sm bg-[#4b6bfb] text-[#ffff] font-semibold p-2 rounded-md">View All Posts</Link>
+          {isLogin ? <Link href='/login' className="bg-red-400 p-2 rounded-md text-[#ffff] cursor-pointer">First Logged In And Creae Blog</Link> : <div className="bg-[#4b6bfb] text-white font-semibold cursor-pointer p-2">Create Blog</div>}
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const SinglePost = () => {
+const SingleBlog = () => {
   return (
-    <div>SinglePost</div>
+    <div>SingleBlog</div>
   )
 }
 
-export default SinglePost
+export default SingleBlog
