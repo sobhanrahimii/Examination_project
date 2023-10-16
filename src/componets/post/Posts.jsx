@@ -22,11 +22,33 @@ import a_author_7 from "public/assets/blog_image/a_author_7.png";
 import a_author_8 from "public/assets/blog_image/a_author_8.png";
 import a_author_9 from "public/assets/blog_image/a_author_9.png";
 import Link from "next/link";
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Posts = () => {
-    const status = "unAuthenticate";
-   const isLogin = "unAuth";
+ 
+
+  const auth = false;
+
+  const notify = () => {
+    
+
+    if (auth) {
+      <button><Link href='/create'></Link>Create Post</button>
+    } else {
+      toast.error("First Create Account!", {
+        position: toast.POSITION.TOP_LEFT
+      });
+    }
+  }
+  
+  // tostify message
+  
+  
+
   return (
     <div>
       <div className="mt-[20%] px-2 flex flex-wrap justify-center gap-2">
@@ -221,8 +243,10 @@ const Posts = () => {
       </div>
       <div className="flex justify-center text-center items-center p-2 bg-gray-100 mx-auto my-2">
         <div className="flex items-center justify-center gap-5"> 
-        <Link href="/blog" className="btn btn-sm bg-[#4b6bfb] text-[#ffff] font-semibold p-2 rounded-md">View All Posts</Link>
-          {isLogin ? <Link href='/login' className="bg-red-400 p-2 rounded-md text-[#ffff] cursor-pointer">First Logged In And Creae Blog</Link> : <div className="bg-[#4b6bfb] text-white font-semibold cursor-pointer p-2">Create Blog</div>}
+        <Link href='/blog' className="btn btn-active btn-neutral">View All</Link>
+        {/* <button className={`${auth ? onClick={notify} : <Link href='/create'>Create Post</Link>}`} >Create Post</button> */}
+        <button className="btn btn-outline btn-primary" onClick={notify}>Create Post</button>
+        
         </div>
       </div>
     </div>
